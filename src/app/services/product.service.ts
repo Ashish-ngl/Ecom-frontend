@@ -12,11 +12,22 @@ export class ProductService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getProductList(): Observable<Product[]> {
-    return this.httpClient.get<any>(this.baseUrl).pipe(
+
+  getProductList(theCategoryId: number): Observable<Product[]> {
+
+    // need to build URL based on category id 
+    const searchUrl = `${this.baseUrl}/search/findByCategoryId?id=${theCategoryId}`;
+
+    return this.httpClient.get<any>(searchUrl).pipe(
       map(response => response._embedded.products)
     );
   }
+
+  // getProductList(): Observable<Product[]> {
+  //   return this.httpClient.get<any>(this.baseUrl).pipe(
+  //     map(response => response._embedded.products)
+  //   );
+  // }
 }
 
 // interface GetResponse {
