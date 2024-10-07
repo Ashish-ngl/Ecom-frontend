@@ -137,3 +137,11 @@ export class ProductListComponent implements OnInit {
   }
 
 }
+
+
+
+// updatePageSize(pageSize: string) {
+//   this.thePageSize = Number(pageSize);  // using Number() to convert string to number
+//   this.thePageNumber = 1;
+//   this.listProducts();
+// }
